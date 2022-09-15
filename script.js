@@ -14,7 +14,7 @@ document.addEventListener("keydown", (event) => {
   if (!event.repeat) tap();
 });
 
-document.body.addEventListener("click", (event) => {
+document.body.addEventListener("mousedown", (event) => {
   if (event.target != reset_btn) tap();
 });
 
@@ -33,6 +33,7 @@ function tap() {
     bpm_label.innerHTML = bpm;
   }
   timestamp = Date.now();
+  blink();
 }
 
 reset_btn.addEventListener("click", () => {
@@ -47,4 +48,9 @@ function reset() {
   reset_btn.blur();
   reset_btn.style.display = "none";
   instructions.style.display = "block";
+}
+
+function blink() {
+  bpm_label.style.filter = "invert(15%)";
+  setTimeout(() => (bpm_label.style.filter = "invert(0%)"), 50);
 }
