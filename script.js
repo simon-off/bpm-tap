@@ -6,12 +6,16 @@ let timestamp = null;
 
 reset();
 
-document.addEventListener("keydown", () => {
-  tap();
+document.addEventListener("keydown", (event) => {
+  if (event.key == "r") {
+    reset();
+    return;
+  }
+  if (!event.repeat) tap();
 });
 
-document.addEventListener("click", () => {
-  tap();
+document.body.addEventListener("click", (event) => {
+  if (event.target != reset_btn) tap();
 });
 
 function tap() {
@@ -23,8 +27,8 @@ function tap() {
     if (taps.push(Date.now() - timestamp) >= 17) {
       taps.shift();
     }
-    let avarage = taps.reduce((a, b) => a + b) / taps.length;
-    let bpm = (60000 / avarage).toFixed(0);
+    let average = taps.reduce((a, b) => a + b) / taps.length;
+    let bpm = (60000 / average).toFixed(0);
     bpm_label.innerHTML = bpm;
   }
   timestamp = Date.now();

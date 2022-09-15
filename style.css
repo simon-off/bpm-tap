@@ -1,19 +1,51 @@
 @import url("https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap");
 
+:root {
+  --fs-info: min(6vmin, 2rem);
+  --fs-bpm: min(36vmin, 14rem);
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
   font-family: "Courier Prime", monospace;
 }
 
+html,
 body {
-  background-color: white;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  padding-top: 100px;
+  height: 100%;
 }
 
-h1 {
-  font-size: 200px;
+body {
+  display: grid;
+  place-items: center;
+  grid-template-rows: auto 1fr auto;
+  background-color: #fff;
+  color: #222;
+  padding: 2rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#instructions {
+  margin-bottom: 5rem;
+  text-align: center;
+  font-size: var(--fs-info);
+}
+
+#bpm {
+  overflow: hidden;
+  font-size: var(--fs-bpm);
+  font-weight: bold;
+}
+
+#reset {
+  padding: 0.5rem;
+  box-shadow: none;
+  font-size: var(--fs-info);
 }
