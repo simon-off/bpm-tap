@@ -21,6 +21,7 @@ document.body.addEventListener("click", (event) => {
 function tap() {
   if (!timestamp) {
     bpm_label.innerHTML = 0;
+    bpm_label.style.display = "block";
     reset_btn.style.display = "block";
     instructions.style.display = "none";
   } else {
@@ -42,6 +43,7 @@ function reset() {
   taps.length = 0;
   timestamp = null;
   bpm_label.innerHTML = "";
+  bpm_label.style.display = "none";
   reset_btn.blur();
   reset_btn.style.display = "none";
   instructions.style.display = "block";

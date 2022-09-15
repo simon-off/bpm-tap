@@ -5,18 +5,26 @@
   --fs-instructions: min(6vmin, 2rem);
   --fs-bpm: min(36vmin, 14rem);
 
-  --color-text: ;
+  --color-text: #222;
+  --color-bg: #fff;
+  --color-bg-hover: #eee;
+
+  --fade-length: 250ms;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 * {
   box-sizing: border-box;
   margin: 0;
   font-family: "IBM Plex Mono", monospace;
-}
-
-a {
-  text-decoration: none;
-  color: #222;
 }
 
 html,
@@ -28,13 +36,16 @@ body {
   display: grid;
   place-items: center;
   grid-template-rows: auto 1fr auto;
-  background-color: #fff;
-  color: #222;
+  background-color: var(--color-bg);
+  color: var(--color-text);
   padding: calc(0.5rem + 4vh);
 }
 
-body > p {
+body > p,
+body > h1 {
+  font-weight: 400;
   font-size: var(--fs-info);
+  animation: fade-in var(--fade-length) ease-in-out forwards;
 }
 
 .container {
@@ -42,6 +53,10 @@ body > p {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.container > * {
+  animation: fade-in var(--fade-length) ease-in-out forwards;
 }
 
 #instructions {
@@ -55,14 +70,33 @@ body > p {
   font-family: "JetBrains Mono", monospace;
   font-size: var(--fs-bpm);
   font-weight: bold;
+  transition: filter var(--fade-length);
 }
 
 #reset {
-  border: 1px solid black;
+  border: 1px solid var(--color-text);
   border-radius: 0.5rem;
   cursor: pointer;
   padding: 1rem 2rem;
   box-shadow: none;
   font-size: var(--fs-instructions);
-  background-color: #fff;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  transition: background-color var(--fade-length);
+}
+
+#reset:hover,
+#reset:focus {
+  background-color: var(--color-bg-hover);
+}
+
+.author {
+  text-decoration: none;
+  color: var(--color-text);
+  transition: opacity calc(var(--fade-length) * 0.5);
+}
+
+.author:hover,
+.author:focus {
+  opacity: 0.6;
 }
