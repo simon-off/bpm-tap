@@ -1,14 +1,22 @@
-@import url("https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=JetBrains+Mono:wght@800&display=swap");
 
 :root {
-  --fs-info: min(6vmin, 2rem);
+  --fs-info: min(4vmin, 1.25rem);
+  --fs-instructions: min(6vmin, 2rem);
   --fs-bpm: min(36vmin, 14rem);
+
+  --color-text: ;
 }
 
 * {
   box-sizing: border-box;
   margin: 0;
-  font-family: "Courier Prime", monospace;
+  font-family: "IBM Plex Mono", monospace;
+}
+
+a {
+  text-decoration: none;
+  color: #222;
 }
 
 html,
@@ -22,7 +30,11 @@ body {
   grid-template-rows: auto 1fr auto;
   background-color: #fff;
   color: #222;
-  padding: 2rem;
+  padding: calc(0.5rem + 4vh);
+}
+
+body > p {
+  font-size: var(--fs-info);
 }
 
 .container {
@@ -33,19 +45,24 @@ body {
 }
 
 #instructions {
-  margin-bottom: 5rem;
+  margin-bottom: 4rem;
   text-align: center;
-  font-size: var(--fs-info);
+  font-size: var(--fs-instructions);
 }
 
 #bpm {
   overflow: hidden;
+  font-family: "JetBrains Mono", monospace;
   font-size: var(--fs-bpm);
   font-weight: bold;
 }
 
 #reset {
-  padding: 0.5rem;
+  border: 1px solid black;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  padding: 1rem 2rem;
   box-shadow: none;
-  font-size: var(--fs-info);
+  font-size: var(--fs-instructions);
+  background-color: #fff;
 }
