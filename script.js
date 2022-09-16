@@ -1,6 +1,7 @@
 const instructions = document.getElementById("instructions");
 const bpm_label = document.getElementById("bpm");
 const reset_btn = document.getElementById("reset");
+const theme_toggle = document.getElementById("theme-toggle");
 const taps = [];
 let timestamp = null;
 
@@ -15,7 +16,7 @@ document.addEventListener("keydown", (event) => {
 });
 
 document.body.addEventListener("mousedown", (event) => {
-  if (event.target != reset_btn) tap();
+  if (event.target != reset_btn && event.target != theme_toggle) tap();
 });
 
 function tap() {

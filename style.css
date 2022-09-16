@@ -1,13 +1,12 @@
+@import "theme/light.css";
+/* JS changes this file depending on theme */
+
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=JetBrains+Mono:wght@800&display=swap");
 
 :root {
   --fs-info: min(4vmin, 1.25rem);
   --fs-instructions: min(6vmin, 2rem);
   --fs-bpm: min(36vmin, 14rem);
-
-  --color-text: #222;
-  --color-bg: #fff;
-  --color-bg-hover: #eee;
 
   --fade-length: 250ms;
 }
@@ -44,13 +43,38 @@ body {
   background-color: var(--color-bg);
   color: var(--color-text);
   padding: calc(0.5rem + 4vh);
+  transition: background-color var(--fade-length) ease-in-out;
 }
 
 body > p,
-body > h1 {
+header > h1 {
   font-weight: 400;
   font-size: var(--fs-info);
   animation: fade-in var(--fade-length) ease-in-out forwards;
+}
+
+header {
+  display: flex;
+  align-items: center;
+}
+
+#theme-toggle {
+  background-color: var(--color-text);
+
+  border-radius: 50%;
+  cursor: pointer;
+  box-sizing: content-box;
+  padding: calc(var(--fs-info) * 0.25);
+
+  margin-left: calc(var(--fs-info) * 0.6);
+  height: calc(var(--fs-info) * 1.1);
+
+  transition: filter 200ms ease-out;
+}
+
+#theme-toggle:hover,
+#theme-toggle:focus {
+  filter: invert(15%);
 }
 
 .container {
@@ -65,7 +89,7 @@ body > h1 {
 }
 
 #instructions {
-  margin-bottom: 4rem;
+  margin-bottom: min(14rem, 14vh);
   text-align: center;
   font-size: var(--fs-instructions);
 }
@@ -107,4 +131,10 @@ body > h1 {
 .author:hover,
 .author:focus {
   opacity: 0.6;
+}
+
+.prevent-select {
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
 }
