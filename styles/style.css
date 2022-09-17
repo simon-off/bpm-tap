@@ -1,14 +1,21 @@
-@import "theme/light.css";
-/* JS changes this file depending on theme */
-
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=JetBrains+Mono:wght@800&display=swap");
 
 :root {
+  --color-text: #222;
+  --color-bg: #fff;
+  --color-bg-hover: #eee;
+
   --fs-info: min(4vmin, 1.25rem);
   --fs-instructions: min(6vmin, 2rem);
   --fs-bpm: min(36vmin, 14rem);
 
   --fade-length: 250ms;
+}
+
+.dark-mode {
+  --color-text: #e8e8e8;
+  --color-bg: #151515;
+  --color-bg-hover: #252525;
 }
 
 @keyframes fade-in {

@@ -7,6 +7,10 @@ let timestamp = null;
 
 reset();
 
+reset_btn.addEventListener("click", () => {
+  reset();
+});
+
 document.addEventListener("keydown", (event) => {
   if (event.key == "r") {
     reset();
@@ -18,6 +22,16 @@ document.addEventListener("keydown", (event) => {
 document.body.addEventListener("mousedown", (event) => {
   if (event.target != reset_btn && event.target != theme_toggle) tap();
 });
+
+function reset() {
+  taps.length = 0;
+  timestamp = null;
+  bpm_label.innerHTML = "";
+  bpm_label.style.display = "none";
+  reset_btn.blur();
+  reset_btn.style.display = "none";
+  instructions.style.display = "block";
+}
 
 function tap() {
   if (!timestamp) {
@@ -35,20 +49,6 @@ function tap() {
   }
   timestamp = Date.now();
   blink();
-}
-
-reset_btn.addEventListener("click", () => {
-  reset();
-});
-
-function reset() {
-  taps.length = 0;
-  timestamp = null;
-  bpm_label.innerHTML = "";
-  bpm_label.style.display = "none";
-  reset_btn.blur();
-  reset_btn.style.display = "none";
-  instructions.style.display = "block";
 }
 
 function blink() {
