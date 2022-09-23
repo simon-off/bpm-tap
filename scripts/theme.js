@@ -5,6 +5,10 @@ let darkMode = localStorage.getItem("darkMode") ? JSON.parse(localStorage.getIte
 
 setColorMode(darkMode);
 
+window.onload = () => {
+  document.documentElement.classList.add("fade");
+};
+
 toggle.addEventListener("click", () => {
   darkMode = !darkMode;
   setColorMode(darkMode);

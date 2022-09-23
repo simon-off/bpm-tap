@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=JetBrains+Mono:wght@800&display=swap");
 
+/* Custom Properties */
 :root {
   --color-text: #222;
   --color-bg: #fff;
@@ -9,15 +10,21 @@
   --fs-instructions: min(6vmin, 2rem);
   --fs-bpm: min(36vmin, 14rem);
 
+  --fade-length: 0ms;
+}
+
+.fade {
   --fade-length: 250ms;
 }
 
+/* Dark theme class */
 .dark-mode {
   --color-text: #e8e8e8;
   --color-bg: #151515;
   --color-bg-hover: #252525;
 }
 
+/* Animations */
 @keyframes fade-in {
   from {
     opacity: 0;
@@ -27,15 +34,16 @@
   }
 }
 
-::selection {
-  color: var(--color-bg);
-  background: var(--color-text);
-}
-
+/* General Styling */
 * {
   box-sizing: border-box;
   margin: 0;
   font-family: "IBM Plex Mono", monospace;
+}
+
+::selection {
+  color: var(--color-bg);
+  background: var(--color-text);
 }
 
 html,
@@ -45,11 +53,11 @@ body {
 
 body {
   display: grid;
-  place-items: center;
   grid-template-rows: auto 1fr auto;
+  place-items: center;
+  padding: calc(0.5rem + 4vh);
   background-color: var(--color-bg);
   color: var(--color-text);
-  padding: calc(0.5rem + 4vh);
   transition: background-color var(--fade-length) ease-in-out;
 }
 
@@ -60,22 +68,20 @@ header > h1 {
   animation: fade-in var(--fade-length) ease-in-out forwards;
 }
 
+/* Custom Styling */
 header {
   display: flex;
   align-items: center;
 }
 
 #theme-toggle {
-  background-color: var(--color-text);
-
+  box-sizing: content-box;
+  height: calc(var(--fs-info) * 1.1);
+  padding: calc(var(--fs-info) * 0.25);
+  margin-left: calc(var(--fs-info) * 0.6);
   border-radius: 50%;
   cursor: pointer;
-  box-sizing: content-box;
-  padding: calc(var(--fs-info) * 0.25);
-
-  margin-left: calc(var(--fs-info) * 0.6);
-  height: calc(var(--fs-info) * 1.1);
-
+  background-color: var(--color-text);
   transition: filter 200ms ease-out;
 }
 
@@ -140,6 +146,7 @@ header {
   opacity: 0.6;
 }
 
+/* Helper Class */
 .prevent-select {
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none; /* IE 10 and IE 11 */
