@@ -1,9 +1,7 @@
-const body = document.getElementsByTagName("body")[0];
-const toggle = document.getElementById("theme-toggle");
+const body = document.querySelector("body");
+const toggle = document.querySelector("#theme-toggle");
 
 let darkMode = localStorage.getItem("darkMode") ? JSON.parse(localStorage.getItem("darkMode")) : false;
-
-setColorMode(darkMode);
 
 window.onload = () => {
   document.documentElement.classList.add("fade");
@@ -11,10 +9,10 @@ window.onload = () => {
 
 toggle.addEventListener("click", () => {
   darkMode = !darkMode;
-  setColorMode(darkMode);
+  toggleDarkMode(darkMode);
 });
 
-function setColorMode(darkMode) {
+function toggleDarkMode(darkMode) {
   if (darkMode) {
     toggle.src = "icons/sun.svg";
     body.classList.add("dark-mode");
@@ -24,3 +22,5 @@ function setColorMode(darkMode) {
   }
   localStorage.setItem("darkMode", darkMode);
 }
+
+toggleDarkMode(darkMode);
