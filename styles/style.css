@@ -126,7 +126,9 @@ header {
   font-size: var(--fs-instructions);
   color: var(--color-text);
   background-color: var(--color-bg);
-  transition: background-color var(--fade-length), letter-spacing var(--fade-length);
+  transition:
+    background-color var(--fade-length),
+    letter-spacing var(--fade-length);
 }
 
 #reset:hover,
